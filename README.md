@@ -1,2 +1,3 @@
 # Pong
-A simple Pong game using Python and PyGame for educational purpose
+A simple Pong game using Python 3.8 and PyGame for educational purpose
+
