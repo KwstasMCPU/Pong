@@ -2,6 +2,7 @@ import pygame
 from paddle import PaddleSprite
 from ball import Ball
 import os
+import time
 
 def main():
     os.chdir(os.path.dirname(__file__))
@@ -17,7 +18,12 @@ def main():
     BLACK = (0, 0, 0)
     WHITE = (255, 255, 255)
 
+    # setting sound
+    pygame.mixer.music.load('zapsplat_pong_bounce.mp3') # sound from https://www.zapsplat.com/
+    
+
     # setting spirtes
+    
     paddleA = PaddleSprite(WHITE, 10, 100)
     paddleA.rect.x = 0
     paddleA.rect.y = 250
@@ -84,9 +90,9 @@ def main():
 
         # Detect collisions between the ball and the paddles
         if pygame.sprite.collide_mask(ball, paddleA) or pygame.sprite.collide_mask(ball, paddleB):
+            pygame.mixer.music.play()
             ball.bounce()
- 
- 
+            
         # Drawing
         # screen to black
         screen.fill(BLACK)
